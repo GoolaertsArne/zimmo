@@ -1,0 +1,139 @@
+// Define variables
+$gap: 20px;
+$checked-color: #ffce44;
+$outline-color: #f00;
+$icon-cursor: pointer;
+$radio-opacity: 0;
+$radio-dimensions: 0;
+$text-color: white;
+
+// Mixin for hiding radio buttons
+@mixin hide-radio {
+  position: absolute;
+  opacity: $radio-opacity;
+  width: $radio-dimensions;
+  height: $radio-dimensions;
+}
+
+// Mixin for checked styles
+@mixin checked-styles {
+  background-color: $checked-color;
+}
+.feedback-container {
+  display: flex;
+  position: relative;
+  z-index: 0;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+}
+.container {
+  color: $text-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #46adfe;
+  border-radius: 50px;
+  width: 100%;
+  height: 100px;
+}
+
+// Styling for the hidden radio buttons and SVG icons
+.reviews {
+  display: flex;
+  position: absolute;
+  bottom: -30px;
+  z-index: 1;
+  gap: $gap;
+}
+
+.review {
+  display: flex;
+  padding: 15px;
+  background-color: #fceec8;
+  border-radius: 100%;
+  opacity: 0.6;
+
+  [type="radio"] {
+    @include hide-radio;
+  }
+
+  // [type="radio"] + label {
+  //   display: flex;
+  //   cursor: $icon-cursor;
+  // }
+
+  // [type="radio"]:checked + label {
+  //   @include checked-styles;
+  // }
+  &-very-bad {
+    background-color: #ff0000;
+  }
+
+  &-bad {
+    background-color: orange;
+  }
+
+  &-average {
+    background-color: yellow;
+  }
+
+  &-good {
+    background-color: lightgreen;
+  }
+
+  &-excellent {
+    background-color: green;
+  }
+
+  // [type="radio"]:checked {
+  //   opacity: 1;
+  // }
+}
+
+// .review > input[type="radio"]:checked {
+//   background-color: black;
+// }
+
+.commentbox {
+  display: flex;
+  // width: 600px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+
+  &__input {
+    width: 100%;
+    height: 100px;
+    border-radius: 6px;
+    font-size: 1.5rem;
+    color: $text-color;
+  }
+
+  &__submit-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  &__button {
+    // margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    background-color: #ffce44;
+    color: #000;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  &__info {
+    color: lightgrey;
+    font-size: 0.8rem;
+  }
+}
