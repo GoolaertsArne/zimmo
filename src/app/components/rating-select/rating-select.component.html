@@ -7,7 +7,9 @@
       @for (rating of ratingOptions; track $index) {
       <label
         class="review review-{{ rating.class }}"
-        [ngStyle]="{ opacity: rating.isSelected ? '1.0' : '0.6' }"
+        [ngStyle]="{
+          opacity: selectedRating?.value === rating.value ? 1 : 0.5
+        }"
       >
         <input
           type="radio"
@@ -37,7 +39,10 @@
       }
     </div>
   </div>
-  <div class="commentbox">
+  <div
+    class="commentbox"
+    [ngStyle]="{ display: selectedRating !== null ? 'flex' : 'none' }"
+  >
     <h2>Geef je graag wat meer uitleg?</h2>
     <textarea type class="commentbox__input"> </textarea>
     <div class="commentbox__submit-container">

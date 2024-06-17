@@ -18,7 +18,6 @@ export class RatingSelectComponent {
       color: 'red',
       iconSrc: 'assets/icons/very-bad.svg',
       class: 'very-bad',
-      isSelected: false,
     },
     {
       value: 2,
@@ -26,7 +25,6 @@ export class RatingSelectComponent {
       color: 'orange',
       iconSrc: 'assets/icons/bad.svg',
       class: 'bad',
-      isSelected: false,
     },
     {
       value: 3,
@@ -34,7 +32,6 @@ export class RatingSelectComponent {
       color: 'yellow',
       iconSrc: 'assets/icons/average.svg',
       class: 'average',
-      isSelected: false,
     },
     {
       value: 4,
@@ -42,7 +39,6 @@ export class RatingSelectComponent {
       color: 'lightgreen',
       iconSrc: 'assets/icons/good.svg',
       class: 'good',
-      isSelected: false,
     },
     {
       value: 5,
@@ -50,7 +46,6 @@ export class RatingSelectComponent {
       color: 'green',
       iconSrc: 'assets/icons/excellent.svg',
       class: 'excellent',
-      isSelected: false,
     },
   ];
 
@@ -58,17 +53,11 @@ export class RatingSelectComponent {
   showDescriptionTextarea = false;
 
   onRatingChange(newRating: RatingOption): void {
-    // this.selectedRating!.isSelected = false;
-    // if (this.selectedRating) {
-    //   this.selectedRating.isSelected = false;
-    // }
-    newRating.isSelected = true;
     this.selectedRating = newRating;
+    // if (this.selectedRating) {
+    //   this.showDescriptionTextarea = true;
+    // }
 
-    if (this.selectedRating) {
-      this.showDescriptionTextarea = true;
-    }
-
-    console.log('Selected Rating:', newRating);
+    console.log('Selected Rating:', this.selectedRating);
   }
 }
