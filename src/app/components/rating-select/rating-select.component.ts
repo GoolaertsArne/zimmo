@@ -1,16 +1,39 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { RatingOption } from '../../models/rating.model';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-rating-select',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, ReactiveFormsModule],
   templateUrl: './rating-select.component.html',
   styleUrl: './rating-select.component.scss',
 })
 export class RatingSelectComponent {
+  // constructor(private formbuilder: FormBuilder) {}
+
+  feedbackForm = new FormGroup({
+    rating: new FormControl(null),
+    description: new FormControl('', Validators.required),
+  });
+
+  selectedRating: RatingOption | null = null;
+
+  get formrating() {
+    return this.feedbackForm.get('rating');
+  }
+
+  get description() {
+    return this.feedbackForm.get('description');
+  }
   ratingOptions: RatingOption[] = [
     {
       value: 1,
@@ -49,15 +72,17 @@ export class RatingSelectComponent {
     },
   ];
 
-  selectedRating: RatingOption | null = null;
-  showDescriptionTextarea = false;
-
   onRatingChange(newRating: RatingOption): void {
     this.selectedRating = newRating;
-    // if (this.selectedRating) {
-    //   this.showDescriptionTextarea = true;
-    // }
 
     console.log('Selected Rating:', this.selectedRating);
+  }
+
+  onSubmit(form: FormGroup) {
+    console.log('testtttttt');
+    console.log('invalid?', form.invalid); // true or false
+    console.log('dirty', form.dirty); // true or false
+    console.log('touched', form.touched); // true or false
+    console.log('Form', form);
   }
 }
