@@ -25,7 +25,7 @@ export class RatingSelectComponent {
 
   constructor(private feedbackService: FeedbackService) {}
 
-  selectedRating: RatingOption | null = null;
+  selectedRating: number | null = null;
   formSubmitted = false;
 
   get formRating() {
@@ -35,51 +35,60 @@ export class RatingSelectComponent {
   get description() {
     return this.feedbackForm.get('description');
   }
+
   ratingOptions: RatingOption[] = [
     {
       value: 1,
       label: 'Very Bad',
-      color: 'red',
       iconSrc: 'assets/icons/very-bad.svg',
+      activeSrc: 'assets/icons/very-bad-active.svg',
       class: 'very-bad',
     },
     {
       value: 2,
       label: 'Bad',
-      color: 'orange',
       iconSrc: 'assets/icons/bad.svg',
+      activeSrc: 'assets/icons/bad-active.svg',
       class: 'bad',
     },
     {
       value: 3,
       label: 'Average',
-      color: 'yellow',
       iconSrc: 'assets/icons/average.svg',
+      activeSrc: 'assets/icons/average-active.svg',
       class: 'average',
     },
     {
       value: 4,
       label: 'Good',
-      color: 'lightgreen',
       iconSrc: 'assets/icons/good.svg',
+      activeSrc: 'assets/icons/good-active.svg',
       class: 'good',
     },
     {
       value: 5,
       label: 'Excellent',
-      color: 'green',
       iconSrc: 'assets/icons/excellent.svg',
+      activeSrc: 'assets/icons/excellent-active.svg',
       class: 'excellent',
     },
   ];
 
-  onRatingChange(newRating: RatingOption): void {
+  onRatingChange(newRating: number): void {
     this.selectedRating = newRating;
 
     console.log('Selected Rating:', this.selectedRating);
   }
 
+  getIconSrc(rating: RatingOption) {
+    return this.selectedRating === rating.value
+      ? rating.activeSrc
+      : rating.iconSrc;
+  }
+
   onSubmit(form: FormGroup) {
+    // Mark all fields as touched to display validation errors
+    form.markAllAsTouched();
     if (form.valid) {
       console.log('Form is valid');
       this.feedbackService.createFeedback(form.value);

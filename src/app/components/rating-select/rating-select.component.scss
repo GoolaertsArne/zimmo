@@ -3,7 +3,6 @@ $gap: 20px;
 $checked-color: #ffce44;
 $outline-color: #f00;
 $icon-cursor: pointer;
-$radio-opacity: 0;
 $radio-dimensions: 0;
 $title-text-color: white;
 $button-color: #f6a00b;
@@ -11,7 +10,6 @@ $button-color: #f6a00b;
 // // Mixin for hiding radio buttons
 @mixin hide-radio {
   position: absolute;
-  opacity: $radio-opacity;
   width: $radio-dimensions;
   height: $radio-dimensions;
 }
@@ -58,7 +56,6 @@ $button-color: #f6a00b;
     padding: 15px;
     background-color: #fceec8;
     border-radius: 100%;
-    opacity: 0.6;
 
     [type="radio"] {
       @include hide-radio;
@@ -73,23 +70,23 @@ $button-color: #f6a00b;
       @include checked-styles;
     }
     &-very-bad {
-      background-color: #ff0000;
+      background-color: #fef8f8;
     }
 
     &-bad {
-      background-color: orange;
+      background-color: #fdf1d2;
     }
 
     &-average {
-      background-color: yellow;
+      background-color: #fdffd9;
     }
 
     &-good {
-      background-color: lightgreen;
+      background-color: #a1e36d;
     }
 
     &-excellent {
-      background-color: green;
+      background-color: #d7ffeb;
     }
   }
 
@@ -128,6 +125,11 @@ $button-color: #f6a00b;
       color: lightgrey;
       font-size: 0.8rem;
     }
+  }
+
+  &_textarea_error {
+    outline-color: red;
+    border: 1px solid red;
   }
 
   &_error {

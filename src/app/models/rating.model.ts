@@ -1,8 +1,8 @@
 export type RatingOption = {
   value: number;
   label: string;
-  color: string;
   iconSrc: string;
+  activeSrc?: string;
   class: string;
   isSelected?: boolean;
 };
