@@ -11,13 +11,13 @@ import { CommonModule } from '@angular/common';
 import { FeedbackService } from '../../api/services/feedback.service';
 
 @Component({
-  selector: 'app-rating-select',
+  selector: 'feedback-form',
   standalone: true,
   imports: [FormsModule, CommonModule, ReactiveFormsModule],
-  templateUrl: './rating-select.component.html',
-  styleUrl: './rating-select.component.scss',
+  templateUrl: './feedback-form.component.html',
+  styleUrl: './feedback-form.component.scss',
 })
-export class RatingSelectComponent {
+export class FeedbackFormComponent {
   feedbackForm = new FormGroup({
     rating: new FormControl(null),
     description: new FormControl('', Validators.required),

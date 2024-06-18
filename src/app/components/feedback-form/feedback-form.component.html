@@ -10,12 +10,7 @@
       </h1>
       <div class="feedback_rating">
         @for (rating of ratingOptions; track $index) {
-        <label
-          class="feedback_smiley feedback_smiley-{{ rating.class }}"
-          [ngStyle]="{
-            fill: selectedRating === rating.value ? '#ffffff' : '#CCCCCC'
-          }"
-        >
+        <label class="feedback_smiley feedback_smiley-{{ rating.class }}">
           <input
             type="radio"
             formControlName="rating"
@@ -33,24 +28,11 @@
       </div>
     </div>
 
-    <div
-      class="feedback_success"
-      [ngStyle]="{
-        display: formSubmitted ? '' : 'none'
-      }"
-    >
-      Feedback met succes verzonden!
-    </div>
-
-    <!-- TODO: load div only if rating is selected -->
-    <div
-      class="feedback_commentbox"
-      [ngStyle]="{
-        display: selectedRating !== null && !formSubmitted ? 'flex' : 'none'
-      }"
-    >
+    @if (formSubmitted) {
+    <div class="feedback_success">Feedback met succes verzonden!</div>
+    } @if (selectedRating !== null && !formSubmitted ) {
+    <div class="feedback_commentbox">
       <h3>Geef je graag wat meer uitleg?</h3>
-      <!-- TODO: fix inline styling here, error class -->
       <textarea
         class="feedback_comment"
         formControlName="description"
@@ -71,5 +53,7 @@
         </div>
       </div>
     </div>
+
+    }
   </form>
 </div>

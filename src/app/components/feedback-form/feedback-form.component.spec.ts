@@ -1,18 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RatingSelectComponent } from './rating-select.component';
+import { FeedbackFormComponent } from './feedback-form.component';
 
 describe('RatingSelectComponent', () => {
-  let component: RatingSelectComponent;
-  let fixture: ComponentFixture<RatingSelectComponent>;
+  let component: FeedbackFormComponent;
+  let fixture: ComponentFixture<FeedbackFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RatingSelectComponent]
-    })
-    .compileComponents();
+      imports: [FeedbackFormComponent],
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(RatingSelectComponent);
+    fixture = TestBed.createComponent(FeedbackFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

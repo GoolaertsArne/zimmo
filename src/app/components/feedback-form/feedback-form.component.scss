@@ -84,10 +84,11 @@ $button-color: #f9ae07;
   }
 
   &_success {
-    background-color: lightgreen;
-    color: green;
-    height: 30px;
-    align-content: center;
+    display: flex;
+    align-items: center;
+    background-color: #d5f5db;
+    color: #1acf00;
+    height: 40px;
     padding: 10px;
   }
 
