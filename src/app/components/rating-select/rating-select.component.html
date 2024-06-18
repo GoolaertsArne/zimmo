@@ -47,21 +47,21 @@
     </div>
 
     <div
-      class="commentbox"
+      class="feedback_commentbox"
       [ngStyle]="{ display: selectedRating !== null ? 'flex' : 'none' }"
     >
       <h2>Geef je graag wat meer uitleg?</h2>
-      <textarea class="commentbox__input" formControlName="description">
+      <textarea class="feedback_comment" formControlName="description">
       </textarea>
-      <div class="commentbox__submit-container">
+      <div class="feedback_error">
         @if (description?.invalid && description?.dirty ) {
         <div class="error">Mag niet leeg zijn</div>
         }
-        <div>
-          <span class="commentbox__info"
+        <div class="feedback_info">
+          <span class="feedback_info_text"
             >Wij verwerken uw gegevens conform onze privacy policiy</span
           >
-          <button type="submit" class="commentbox__button">Verzenden</button>
+          <button type="submit" class="feedback_submit">Verzenden</button>
         </div>
       </div>
     </div>
