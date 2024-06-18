@@ -1,13 +1,4 @@
-// // Define variables
-$gap: 20px;
-$checked-color: #ffce44;
-$error-color: red;
-$icon-cursor: pointer;
-$radio-dimensions: 0;
-$title-text-color: white;
-$button-color: #f9ae07;
-$button-hover-active-color: brightness(0) saturate(100%) invert(100%) sepia(50%)
-  saturate(0%) hue-rotate(355deg) brightness(105%) contrast(101%);
+@import "variables";
 
 // Mixin for hiding radio buttons
 @mixin hide-radio {
@@ -34,10 +25,13 @@ $button-hover-active-color: brightness(0) saturate(100%) invert(100%) sepia(50%)
     align-items: center;
     color: $title-text-color;
     position: relative;
-    background-color: #46adfe;
+    background-color: $primary-color;
     border-radius: 80px;
-    height: 150px;
-    font-size: small;
+    height: 140px;
+  }
+
+  &_title {
+    font-size: 1.2rem;
   }
 
   &_rating {
@@ -46,7 +40,7 @@ $button-hover-active-color: brightness(0) saturate(100%) invert(100%) sepia(50%)
     bottom: 0px;
     // Staat aan de onderkant van de feedback-header (relatief parent element), de translate Y verplaatst de feedback-rating van zijn huidige positie.
     transform: translateY(20px);
-    gap: $gap;
+    gap: 30px;
   }
 
   &_smiley {
@@ -150,7 +144,7 @@ $button-hover-active-color: brightness(0) saturate(100%) invert(100%) sepia(50%)
   &_submit {
     padding: 10px 20px;
     border-radius: 6px;
-    background-color: $button-color;
+    background-color: $secondary-color;
     border: none;
     font-size: 0.8rem;
     cursor: pointer;

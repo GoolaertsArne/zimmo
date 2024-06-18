@@ -1,4 +1,4 @@
-$button-color: #f6a00b;
+@import "variables";
 
 .sell_rent {
   width: 50vw;
@@ -15,8 +15,9 @@ $button-color: #f6a00b;
 
     & p {
       margin-bottom: 10px;
-      color: #333333;
+      color: #565656;
       font-weight: 200;
+      font-size: 0.8rem;
     }
   }
 
@@ -30,9 +31,9 @@ $button-color: #f6a00b;
       padding: 10px 20px;
       border-radius: 6px;
       background-color: white;
-      color: $button-color;
+      color: $secondary-color;
       font-size: 0.8rem;
-      border: solid $button-color;
+      border: solid $secondary-color;
       cursor: pointer;
     }
   }
