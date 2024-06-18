@@ -51,10 +51,29 @@
       [ngStyle]="{ display: selectedRating !== null ? 'flex' : 'none' }"
     >
       <h2>Geef je graag wat meer uitleg?</h2>
-      <textarea class="feedback_comment" formControlName="description">
+      <!-- TODO: fix inline styling here -->
+      <textarea
+        class="feedback_comment"
+        formControlName="description"
+        [ngStyle]="{
+          'outline-color':
+            (description?.invalid && description?.dirty) ||
+            (description?.touched && description?.invalid)
+              ? 'red'
+              : 'lightgrey',
+
+              'border-color':
+            (description?.invalid && description?.dirty) ||
+            (description?.touched && description?.invalid)
+              ? 'red'
+              : 'lightgrey',
+
+        }"
+      >
       </textarea>
       <div class="feedback_error">
-        @if (description?.invalid && description?.dirty ) {
+        @if (description?.invalid && description?.dirty || description?.touched
+        && description?.invalid ) {
         <div class="error">Mag niet leeg zijn</div>
         }
         <div class="feedback_info">

@@ -27,7 +27,7 @@ export class RatingSelectComponent {
 
   selectedRating: RatingOption | null = null;
 
-  get formrating() {
+  get formRating() {
     return this.feedbackForm.get('rating');
   }
 
@@ -79,10 +79,7 @@ export class RatingSelectComponent {
   }
 
   onSubmit(form: FormGroup) {
-    console.log('testtttttt');
-    console.log('invalid?', form.invalid); // true or false
-    console.log('dirty', form.dirty); // true or false
-    console.log('touched', form.touched); // true or false
-    console.log('Form', form);
+    console.log(form);
+    console.log(form.touched);
   }
 }

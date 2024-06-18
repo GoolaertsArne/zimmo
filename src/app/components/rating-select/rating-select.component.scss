@@ -105,6 +105,7 @@ $button-color: #f6a00b;
     height: 100px;
     border-radius: 6px;
     font-size: 1.5rem;
+    border-color: lightgrey;
   }
 
   &_info {
@@ -119,6 +120,11 @@ $button-color: #f6a00b;
       color: lightgrey;
       font-size: 0.8rem;
     }
+  }
+
+  &_error {
+    color: red;
+    margin-top: 10px;
   }
 
   &_submit {
