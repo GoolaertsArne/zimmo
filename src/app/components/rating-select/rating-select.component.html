@@ -47,8 +47,19 @@
     </div>
 
     <div
+      class="feedback_success"
+      [ngStyle]="{
+        display: formSubmitted ? '' : 'none'
+      }"
+    >
+      Feedback met succes verzonden!
+    </div>
+
+    <div
       class="feedback_commentbox"
-      [ngStyle]="{ display: selectedRating !== null ? 'flex' : 'none' }"
+      [ngStyle]="{
+        display: selectedRating !== null && !formSubmitted ? 'flex' : 'none'
+      }"
     >
       <h3>Geef je graag wat meer uitleg?</h3>
       <!-- TODO: fix inline styling here -->

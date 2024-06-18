@@ -93,6 +93,14 @@ $button-color: #f6a00b;
     }
   }
 
+  &_success {
+    background-color: lightgreen;
+    color: green;
+    height: 30px;
+    align-content: center;
+    padding: 10px;
+  }
+
   &_commentbox {
     display: flex;
     flex-direction: column;

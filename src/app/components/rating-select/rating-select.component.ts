@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {
-  FormBuilder,
   FormControl,
   FormGroup,
   FormsModule,
@@ -9,6 +8,7 @@ import {
 } from '@angular/forms';
 import { RatingOption } from '../../models/rating.model';
 import { CommonModule } from '@angular/common';
+import { FeedbackService } from '../../api/services/feedback.service';
 
 @Component({
   selector: 'app-rating-select',
@@ -18,14 +18,15 @@ import { CommonModule } from '@angular/common';
   styleUrl: './rating-select.component.scss',
 })
 export class RatingSelectComponent {
-  // constructor(private formbuilder: FormBuilder) {}
-
   feedbackForm = new FormGroup({
     rating: new FormControl(null),
     description: new FormControl('', Validators.required),
   });
 
+  constructor(private feedbackService: FeedbackService) {}
+
   selectedRating: RatingOption | null = null;
+  formSubmitted = false;
 
   get formRating() {
     return this.feedbackForm.get('rating');
@@ -79,7 +80,13 @@ export class RatingSelectComponent {
   }
 
   onSubmit(form: FormGroup) {
-    console.log(form);
-    console.log(form.touched);
+    if (form.valid) {
+      console.log('Form is valid');
+      this.feedbackService.createFeedback(form.value);
+      this.formSubmitted = true;
+    } else {
+      console.log('Form is invalid');
+      this.formSubmitted = false;
+    }
   }
 }
