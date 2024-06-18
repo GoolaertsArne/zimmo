@@ -76,25 +76,15 @@ export class FeedbackFormComponent {
 
   onRatingChange(newRating: number): void {
     this.selectedRating = newRating;
-
-    console.log('Selected Rating:', this.selectedRating);
-  }
-
-  getIconSrc(rating: RatingOption) {
-    return this.selectedRating === rating.value
-      ? rating.activeSrc
-      : rating.iconSrc;
   }
 
   onSubmit(form: FormGroup) {
     // Mark all fields as touched to display validation errors
     form.markAllAsTouched();
     if (form.valid) {
-      console.log('Form is valid');
       this.feedbackService.createFeedback(form.value);
       this.formSubmitted = true;
     } else {
-      console.log('Form is invalid');
       this.formSubmitted = false;
     }
   }

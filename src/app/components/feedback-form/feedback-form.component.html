@@ -18,11 +18,7 @@
             [value]="rating.value"
             (change)="onRatingChange(rating.value)"
           />
-          <img
-            [src]="getIconSrc(rating)"
-            alt="{{ rating.label }}"
-            class="review__icon"
-          />
+          <img [src]="rating.iconSrc" alt="{{ rating.label }}" />
         </label>
         }
       </div>
