@@ -1,7 +1,14 @@
-.blog-container {
-  background-color: lightgrey;
+.blog_container {
+  background-color: #f6fafc;
 }
 
 h2 {
   text-align: center;
+  padding-top: 40px;
+}
+
+.blog_list {
+  display: flex;
+  padding: 40px;
+  justify-content: space-around;
 }

@@ -1,0 +1,36 @@
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 350px;
+  background-color: white;
+  border-radius: 5px;
+
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  &_body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+  }
+  &_image {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+  }
+
+  &_title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  &_text {
+    font-size: 14px;
+    color: #aaacb8;
+  }
+
+  & a {
+    color: #3baaff;
+    text-decoration: none;
+  }
+}
