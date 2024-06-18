@@ -8,4 +8,6 @@ import { BlogCardComponent } from '../blog-card/blog-card.component';
   styleUrl: './blog-list.component.scss',
   imports: [BlogCardComponent],
 })
-export class BlogListComponent {}
+export class BlogListComponent {
+  blogPosts = [1, 2, 3, 4];
+}

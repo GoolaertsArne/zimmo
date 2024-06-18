@@ -2,10 +2,9 @@
   <div>
     <h2>Hoe verkoop je het beste een huis?</h2>
     <div class="blog_list">
-      <app-blog-card></app-blog-card>
-      <app-blog-card></app-blog-card>
-      <app-blog-card></app-blog-card>
-      <app-blog-card></app-blog-card>
+      @for (item of blogPosts; track $index) {
+      <app-blog-card />
+      }
     </div>
   </div>
 </div>
