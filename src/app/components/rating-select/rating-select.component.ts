@@ -6,7 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { RatingOption } from '../../models/rating.model';
+import { RatingOption } from './rating.model';
 import { CommonModule } from '@angular/common';
 import { FeedbackService } from '../../api/services/feedback.service';
 
