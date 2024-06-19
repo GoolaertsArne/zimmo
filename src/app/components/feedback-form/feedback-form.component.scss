@@ -7,11 +7,6 @@
   height: $radio-dimensions;
 }
 
-.rating {
-  width: 50vw;
-  margin: auto;
-}
-
 .feedback {
   &_form {
     display: flex;
@@ -38,7 +33,6 @@
     display: flex;
     position: absolute;
     bottom: 0px;
-    // Staat aan de onderkant van de feedback-header (relatief parent element), de translate Y verplaatst de feedback-rating van zijn huidige positie.
     transform: translateY(20px);
     gap: 30px;
   }
@@ -113,7 +107,7 @@
   &_comment {
     height: 100px;
     border-radius: 6px;
-    font-size: 0.8rem;
+    font-size: $font-size;
     border-color: lightgrey;
     padding: 8px;
   }
@@ -127,7 +121,7 @@
 
     &_text {
       color: lightgrey;
-      font-size: 0.8rem;
+      font-size: $font-size;
       font-style: italic;
     }
   }
@@ -140,6 +134,7 @@
   &_error {
     color: $error-color;
     margin-top: 10px;
+    font-size: $font-size;
   }
 
   &_submit {
@@ -147,7 +142,7 @@
     border-radius: 6px;
     background-color: $secondary-color;
     border: none;
-    font-size: 0.8rem;
+    font-size: $font-size;
     cursor: pointer;
     color: $title-text-color;
     font-weight: bold;

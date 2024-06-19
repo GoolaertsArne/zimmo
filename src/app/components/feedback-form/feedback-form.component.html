@@ -1,55 +1,53 @@
-<div class="rating">
-  <form
-    class="feedback_form"
-    [formGroup]="feedbackForm"
-    (ngSubmit)="onSubmit(feedbackForm)"
-  >
-    <div class="feedback_header">
-      <h1 class="feedback_title">
-        Hoe eenvoudig kon je je huis online plaatsen?
-      </h1>
-      <div class="feedback_rating">
-        @for (rating of ratingOptions; track $index) {
-        <label class="feedback_smiley feedback_smiley-{{ rating.class }}">
-          <input
-            type="radio"
-            formControlName="rating"
-            id="{{ rating.label }}"
-            [value]="rating.value"
-            (change)="onRatingChange(rating.value)"
-          />
-          <img [src]="rating.iconSrc" alt="{{ rating.label }}" />
-        </label>
-        }
+<form
+  class="feedback_form"
+  [formGroup]="feedbackForm"
+  (ngSubmit)="onSubmit(feedbackForm)"
+>
+  <div class="feedback_header">
+    <h1 class="feedback_title">
+      Hoe eenvoudig kon je je huis online plaatsen?
+    </h1>
+    <div class="feedback_rating">
+      @for (rating of ratingOptions; track $index) {
+      <label class="feedback_smiley feedback_smiley-{{ rating.class }}">
+        <input
+          type="radio"
+          formControlName="rating"
+          id="{{ rating.label }}"
+          [value]="rating.value"
+          (change)="onRatingChange(rating.value)"
+        />
+        <img [src]="rating.iconSrc" alt="{{ rating.label }}" />
+      </label>
+      }
+    </div>
+  </div>
+
+  @if (formSubmitted) {
+  <div class="feedback_success">Feedback met succes verzonden!</div>
+  } @if (selectedRating !== null && !formSubmitted ) {
+  <div class="feedback_commentbox">
+    <h3>Geef je graag wat meer uitleg?</h3>
+    <textarea
+      class="feedback_comment"
+      formControlName="description"
+      [class]="{
+        feedback_textarea_error: description?.touched && description?.invalid
+      }"
+    >
+    </textarea>
+    <div class="feedback_error">
+      @if (description?.touched && description?.invalid ) {
+      <div class="error">Mag niet leeg zijn.</div>
+      }
+      <div class="feedback_info">
+        <span class="feedback_info_text"
+          >Wij verwerken uw gegevens conform onze privacy policiy</span
+        >
+        <button type="submit" class="feedback_submit">Verzenden</button>
       </div>
     </div>
+  </div>
 
-    @if (formSubmitted) {
-    <div class="feedback_success">Feedback met succes verzonden!</div>
-    } @if (selectedRating !== null && !formSubmitted ) {
-    <div class="feedback_commentbox">
-      <h3>Geef je graag wat meer uitleg?</h3>
-      <textarea
-        class="feedback_comment"
-        formControlName="description"
-        [class]="{
-          feedback_textarea_error: description?.touched && description?.invalid
-        }"
-      >
-      </textarea>
-      <div class="feedback_error">
-        @if (description?.touched && description?.invalid ) {
-        <div class="error">Mag niet leeg zijn</div>
-        }
-        <div class="feedback_info">
-          <span class="feedback_info_text"
-            >Wij verwerken uw gegevens conform onze privacy policiy</span
-          >
-          <button type="submit" class="feedback_submit">Verzenden</button>
-        </div>
-      </div>
-    </div>
-
-    }
-  </form>
-</div>
+  }
+</form>
